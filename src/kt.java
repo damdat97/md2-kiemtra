@@ -43,15 +43,22 @@ public class kt {
         }
 
 
-        System.out.println("Nhap phan tu b: ");
+        System.out.print("\nNhập phần tử cần thêm vào mảng: ");
         b = scanner.nextInt();
-        System.out.println("Nhap vi tri can them b: ");
+        System.out.print("\nNhập vị trí cần thêm (nhỏ hơn hoặc bằng " + (arr.length+1) + "): ");
         vt = scanner.nextInt();
-        int[] brr = new int[n + 1];
-        for (int i = 0; i < brr.length; i++) {
-            arr[i] = brr[i];
-            brr[i] = brr
+        int[] arr2 = new int[arr.length+1];
+        for (int i = 0; i < vt-1; i++) {
+            arr2[i] = arr[i];
         }
-
+        arr2[vt-1] = b;
+        for (int i = vt-1; i < arr.length; i++) {
+            arr2[i+1] = arr[i];
+        }
+        System.out.println("Mảng sau khi thêm " + b + " vào mảng là:");
+        arr = arr2;
+        for (int i : arr) {
+            System.out.print(i + "\t");
+        }
     }
 }
