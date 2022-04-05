@@ -2,50 +2,48 @@ import java.util.Scanner;
 
 public class kt {
     public static void main(String[] args) {
-        int sum = 0;
-        int a, b, vt;
-        boolean check = false;
-
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Nhap so phan tu cua mang: ");
+
+        //Cau 1 2:
+        System.out.print("Nhap so luong phan tu trong mang: ");
         int n = scanner.nextInt();
         int[] arr = new int[n];
-
-        System.out.println("Nhap cac gia tri cua mang: ");
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++){
             System.out.print("arr[" + i + "] = ");
             arr[i] = scanner.nextInt();
         }
 
-        System.out.print("Mang vua nhap: ");
+        //Cau 3
+        int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-
-        for (int i = 0; i < arr.length; i ++) {
             if (arr[i] % 2 == 0) {
-                sum = sum + arr[i];
+                sum += arr[i];
             }
         }
-        System.out.print("\nTong cac phan tu chan trong mang: " + sum);
+        System.out.println("\nTong cac phan tu chan: " + sum);
 
-        System.out.print("\nNhap phan tu a: ");
-        a = scanner.nextInt();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == a) {
-                check = true;
-                System.out.println(a + " co trong mang va o vi tri: " + i);
-                arr[i] = arr[i + 1];
-                System.out.println("Mang sau khi xoa phan tu " + a + " : " + arr[i]);
-            }
-        } if (check == false) {
-            System.out.println(a + " khong co trong mang.");
+        //Cau 3 4 5
+        System.out.print("Nhap vao so can tim: ");
+        int a1 = scanner.nextInt();
+        System.out.print("Vi tri trong mang la: " + timViTri(arr, a1));
+        System.out.print("\nNhap vao so can xoa: ");
+        int a2 = scanner.nextInt();
+        int viTriCanXoa = timViTri(arr, a2);
+        int[] newArr = new int[arr.length - 1];
+        for (int i = 0; i < viTriCanXoa; i++) {
+            newArr[i] = arr[i];
         }
+        for (int i = viTriCanXoa; i < arr.length - 1; i++) {
+            newArr[i] = arr[i + 1];
+        }
+        arr = newArr;
+        inMang(arr);
 
+        //Cau 6
         System.out.print("Nhap phan tu can them vao mang: ");
-        b = scanner.nextInt();
+        int b = scanner.nextInt();
         System.out.print("\nNhap vi tri can them (nho hon hoac bang " + (arr.length+1) + "): ");
-        vt = scanner.nextInt();
+        int vt = scanner.nextInt();
         int[] arr2 = new int[arr.length+1];
         for (int i = 0; i < vt-1; i++) {
             arr2[i] = arr[i];
@@ -58,6 +56,23 @@ public class kt {
         arr = arr2;
         for (int i : arr) {
             System.out.print(i + "\t");
+        }
+    }
+
+    static int timViTri(int[] arr, int soCanTim) {
+        int viTri = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == soCanTim) {
+                viTri = i;
+            }
+        }
+        return viTri;
+    }
+
+    static void inMang(int[] arr) {
+        System.out.println("Mang la: ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i] + "\t");
         }
     }
 }
