@@ -11,7 +11,7 @@ public class kt {
         int n = scanner.nextInt();
         int[] arr = new int[n];
 
-        System.out.print("Nhap cac gia tri cua mang: ");
+        System.out.println("Nhap cac gia tri cua mang: ");
         for (int i = 0; i < arr.length; i++) {
             System.out.print("arr[" + i + "] = ");
             arr[i] = scanner.nextInt();
@@ -19,7 +19,7 @@ public class kt {
 
         System.out.print("Mang vua nhap: ");
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i] + " ");
+            System.out.print(arr[i] + " ");
         }
 
         for (int i = 0; i < arr.length; i ++) {
@@ -27,9 +27,9 @@ public class kt {
                 sum = sum + arr[i];
             }
         }
-        System.out.println("Tong cac phan tu chan trong mang: " + sum);
+        System.out.print("\nTong cac phan tu chan trong mang: " + sum);
 
-        System.out.println("Nhap phan tu a: ");
+        System.out.print("\nNhap phan tu a: ");
         a = scanner.nextInt();
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == a) {
@@ -42,10 +42,9 @@ public class kt {
             System.out.println(a + " khong co trong mang.");
         }
 
-
-        System.out.print("\nNhập phần tử cần thêm vào mảng: ");
+        System.out.print("Nhap phan tu can them vao mang: ");
         b = scanner.nextInt();
-        System.out.print("\nNhập vị trí cần thêm (nhỏ hơn hoặc bằng " + (arr.length+1) + "): ");
+        System.out.print("\nNhap vi tri can them (nho hon hoac bang " + (arr.length+1) + "): ");
         vt = scanner.nextInt();
         int[] arr2 = new int[arr.length+1];
         for (int i = 0; i < vt-1; i++) {
@@ -55,7 +54,7 @@ public class kt {
         for (int i = vt-1; i < arr.length; i++) {
             arr2[i+1] = arr[i];
         }
-        System.out.println("Mảng sau khi thêm " + b + " vào mảng là:");
+        System.out.println("Mang sau khi them " + b + " vao mang la:");
         arr = arr2;
         for (int i : arr) {
             System.out.print(i + "\t");
